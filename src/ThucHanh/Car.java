@@ -18,7 +18,7 @@ public class Car implements Runnable{
         long startTime = System.currentTimeMillis();
         while (runDistance < DISTANCE) {
             try {
-                int speed = (new Random()).nextInt(20);
+                int speed = (new Random()).nextInt(10);
                 runDistance += speed;
                 String log = "|";
                 int percentTravel = (runDistance * 100) / DISTANCE;
@@ -32,8 +32,10 @@ public class Car implements Runnable{
                     }
                 }
                 log += "|";
+
                 System.out.println("Car" + this.name + ": " + log + " " + Math.min(DISTANCE, runDistance) + "KM");
-                Thread.sleep(1000);
+
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 System.out.println("Car" + this.name + " broken...");
                 break;
